@@ -8,13 +8,10 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
-
-Ruby 3.0.0
+  * Ruby 3.0.0
 
 * System dependencies
-
-
-libsqlite3-dev
+  * libsqlite3-dev
 
 * Configuration
 
