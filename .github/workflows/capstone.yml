@@ -1,0 +1,24 @@
+name: capstone-ci
+
+# DEBUG
+on: workflow_dispatch  # trigger manually
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - name: Install dependencies
+        run: |
+          bundle install
+          sudo apt-get install -y libsqlite3-dev
+      - name: lint
+        run: rubocop -a
+      - name: test
+        run: rails test
