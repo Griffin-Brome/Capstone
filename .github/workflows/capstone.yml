@@ -1,7 +1,10 @@
 name: capstone-ci
-
-# DEBUG
-on: workflow_dispatch  # Trigger manually
+on:
+  workflow_dispatch: # For debugging
+  pull_request:
+    branches:
+    - main
+    - dev
 
 jobs:
   test:
