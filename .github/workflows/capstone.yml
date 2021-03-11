@@ -1,7 +1,7 @@
 name: capstone-ci
 
 # DEBUG
-on: workflow_dispatch  # trigger manually
+on: workflow_dispatch  # Trigger manually
 
 jobs:
   test:
@@ -17,8 +17,8 @@ jobs:
       - name: Install dependencies
         run: |
           bundle install
-          sudo apt-get install -y libsqlite3-dev
+          sudo apt-get install --yes --quiet libsqlite3-dev # Required due to SQLite3 database
       - name: lint
-        run: rubocop -a
-      - name: test
-        run: rails test
+        run: bundle exec rubocop --auto-correct --cache=true
+      - name: test # Always run tests AFTER linting
+        run: bundle exec rails test
