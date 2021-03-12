@@ -1,0 +1,27 @@
+name: capstone-ci
+on:
+  workflow_dispatch: # For debugging
+  pull_request:
+    branches:
+    - main
+    - dev
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - name: Install dependencies
+        run: |
+          bundle install
+          sudo apt-get install --yes --quiet libsqlite3-dev # Required due to SQLite3 database
+      - name: lint
+        run: bundle exec rubocop --auto-correct --cache=true
+      - name: test # Always run tests AFTER linting
+        run: bundle exec rails test
