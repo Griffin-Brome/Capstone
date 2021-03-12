@@ -6,4 +6,6 @@ Rails.application.routes.draw do
 
   get 'home/sign_up'
   root to: 'home#sign_up'
+
+  
 end

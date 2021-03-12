@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# controller defining the basic functionality of the user object, allowing interaction with the user table in the db
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
 
