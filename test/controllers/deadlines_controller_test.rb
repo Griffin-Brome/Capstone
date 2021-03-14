@@ -19,7 +19,8 @@ class DeadlinesControllerTest < ActionDispatch::IntegrationTest
 
   test 'should create deadline' do
     assert_difference('Deadline.count') do
-      post deadlines_url, params: { deadline: { name: @deadline.name, description: @deadline.description, date: @deadline.date } }
+      post deadlines_url,
+           params: { deadline: { name: @deadline.name, description: @deadline.description, date: @deadline.date } }
     end
     assert_redirected_to deadline_url(Deadline.last)
   end
@@ -35,8 +36,9 @@ class DeadlinesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should update deadline' do
-    patch deadlines_url(@deadline), params: { deadline: { name: @deadline.name, description: @deadline.description, date: @deadline.date } }
-    assert_redirected_to user_url(@user)
+    patch deadline_url(Deadline.last),
+          params: { deadline: { name: @deadline.name, description: @deadline.description, date: @deadline.date } }
+    assert_redirected_to deadline_url(Deadline.last)
   end
 
   test 'should destroy deadline' do
