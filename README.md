@@ -1,28 +1,23 @@
 # README
+Deadline Tracker for UBC Students
+=================================
+[![capstone-ci](https://github.com/Griffin-Brome/Capstone/actions/workflows/capstone.yml/badge.svg)](https://github.com/Griffin-Brome/Capstone/actions/workflows/capstone.yml)
 
-[Installation instructions for Ruby on Rails.](https://guides.rubyonrails.org/getting_started.html#creating-a-new-rails-project-installing-rails)
+Installation
+------------
+This project requires 
+- Ruby 3
+- SQLite 3
+  - libsqlite3-dev 
+- Node 12
+  - yarn
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
-
-* Ruby version
-  * Ruby 3.0.0
-
-* System dependencies
-  * libsqlite3-dev
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+To get started:
+---------------
+1. Clone the repo
+2. Run `bundle install`
+3. Run `yarn`
+4. Run `bundle exec rubocop -x` to lint your code (provides some auto-formatting)
+5. Run `bundle exec rails test` to run the test suite
+6. Run `bundle exec rails server` and head to [localhost:3000](http://localhost:3000) on your web browser to view the site
