@@ -21,8 +21,7 @@ jobs:
         run: |
           bundle install
           sudo apt-get install --yes --quiet libsqlite3-dev # Required due to SQLite3 database
-          steps:
-      - name: Use Node.js
+      - name: Use Node.js # https://stackoverflow.com/questions/58065428/rails-vanilla-rails-6-0-error-command-webpack-not-found
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
