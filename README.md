@@ -1,4 +1,3 @@
-# README
 Deadline Tracker for UBC Students
 =================================
 [![capstone-ci](https://github.com/Griffin-Brome/Capstone/actions/workflows/capstone.yml/badge.svg)](https://github.com/Griffin-Brome/Capstone/actions/workflows/capstone.yml)
