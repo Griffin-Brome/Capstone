@@ -23,6 +23,7 @@ jobs:
         run: |
           bundle install
           sudo apt-get install --yes --quiet libsqlite3-dev # Required due to SQLite3 database
+          bundle exec rails webpacker:compile
       - name: lint
         run: bundle exec rubocop --auto-correct --cache=true
       - name: test # Always run tests AFTER linting
