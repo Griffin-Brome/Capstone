@@ -32,4 +32,5 @@ jobs:
       - name: test # Always run tests AFTER linting
         run: | # https://anthonybroadcrawford.com/2020/03/02/webpacker-heroku-ci.html
           bundle exec rails assets:precompile
+          bundle exec rails db:migrate RAILS_ENV=test
           bundle exec rails test
