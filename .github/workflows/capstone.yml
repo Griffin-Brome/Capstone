@@ -21,6 +21,13 @@ jobs:
         run: |
           bundle install
           sudo apt-get install --yes --quiet libsqlite3-dev # Required due to SQLite3 database
+          steps:
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Install dependencies
+        run: yarn
       - name: lint
         run: bundle exec rubocop --auto-correct --cache=true
       - name: test # Always run tests AFTER linting
