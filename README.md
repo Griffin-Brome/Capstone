@@ -1,4 +1,5 @@
 # README
+[![capstone-ci](https://github.com/Griffin-Brome/Capstone/actions/workflows/capstone.yml/badge.svg)](https://github.com/Griffin-Brome/Capstone/actions/workflows/capstone.yml)
 
 [Installation instructions for Ruby on Rails.](https://guides.rubyonrails.org/getting_started.html#creating-a-new-rails-project-installing-rails)
 
