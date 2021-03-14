@@ -24,4 +24,6 @@ jobs:
       - name: lint
         run: bundle exec rubocop --auto-correct --cache=true
       - name: test # Always run tests AFTER linting
-        run: bundle exec rails test
+        run: | # https://anthonybroadcrawford.com/2020/03/02/webpacker-heroku-ci.html
+          bundle exec rails assets:precompile
+          bundle exec rails test

@@ -1,0 +1,12 @@
+<h1>Deadlines</h1>
+
+<ul>
+  <% @deadlines.each do |deadline| %>
+    <li>
+      <%= link_to deadline.name, deadline %>
+      <%= deadline.date %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "New Deadline", new_deadline_path %>
