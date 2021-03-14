@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Controller for Deadlines
 class DeadlinesController < ApplicationController
   def index
     @deadlines = Deadline.all
@@ -43,6 +46,7 @@ class DeadlinesController < ApplicationController
   end
 
   private
+
   def deadline_params
     params.require(:deadline).permit(:name, :description, :date)
   end
