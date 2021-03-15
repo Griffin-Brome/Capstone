@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Controller for users
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
 
@@ -20,13 +23,10 @@ class UsersController < ApplicationController
   # POST /users or /users.json
   def create
     @user = User.new(user_params)
-
     respond_to do |format|
       if @user.save
-
         # Tell the UserMailer to send a welcome email after save
         UserMailer.with(user: @user).welcome_email.deliver_later
-
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
