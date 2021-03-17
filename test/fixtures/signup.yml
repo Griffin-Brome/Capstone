@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+John:
+  email: john@gmail.com
+  password: randomPasscode123
+
+Jonny:
+  email: jonny@gmail.com
+  password: asd76FFG&DS87
