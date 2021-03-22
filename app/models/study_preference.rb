@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class StudyPreference < ApplicationRecord
   belongs_to :deadline
 
