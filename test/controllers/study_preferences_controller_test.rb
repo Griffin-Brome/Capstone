@@ -21,7 +21,7 @@ class StudyPreferencesControllerTest < ActionDispatch::IntegrationTest
   test 'should create study preference' do
     assert_difference('StudyPreference.count') do
       post study_preferences_url,
-          params: { study_preference: { deadline_id: @deadline.id, requiredTime: 3, priority: 3 } }
+           params: { study_preference: { deadline_id: @deadline.id, requiredTime: 3, priority: 3 } }
     end
 
     assert_redirected_to study_preference_url(StudyPreference.last)
@@ -39,7 +39,10 @@ class StudyPreferencesControllerTest < ActionDispatch::IntegrationTest
 
   test 'should update study preference' do
     patch study_preference_url(StudyPreference.last),
-          params: { study_preference: { deadline: @study_preference.deadline, requiredTime: @study_preference.requiredTime, priority: @study_preference.priority } }
+          params: { study_preference:
+                                        { deadline: @study_preference.deadline,
+                                          requiredTime: @study_preference.requiredTime,
+                                          priority: @study_preference.priority } }
     assert_redirected_to study_preference_url(StudyPreference.last)
   end
 
