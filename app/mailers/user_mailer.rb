@@ -8,6 +8,5 @@ class UserMailer < ApplicationMailer
     @user = params[:user]
     @url  = 'http://example.com/login'
     mail(to: @user.email, subject: 'Welcome to Deadline Tracker for UBC Students')
-
   end
 end
