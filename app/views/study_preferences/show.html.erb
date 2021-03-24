@@ -1,0 +1,14 @@
+<h1><strong>Study Preference for Deadline: </strong><%= @study_preference.deadline.name %></h1>
+
+<p> <strong>Level of Priority: </strong><%=@study_preference.priority%></p>
+<p><strong>Required Time: </strong><%=  @study_preference.requiredTime%></p>
+
+<ul>
+  <li><%= link_to "Go to Deadline", deadline_path(@study_preference.deadline) %></li> 
+  <li><%= link_to "Study Preferences", study_preferences_path %></li>
+  <li><%= link_to "Edit", edit_study_preference_path(@study_preference) %></li>
+  <li><%= link_to "Destroy", study_preference_path(@study_preference),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %></li>
+</ul>
+

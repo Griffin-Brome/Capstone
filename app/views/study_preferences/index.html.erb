@@ -1,0 +1,12 @@
+<h1>Study Preferences</h1>
+
+<ul>
+  <% @study_preferences.each do |study_preference| %>
+    <li>
+      <%= link_to study_preference.deadline.name, study_preference %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "New Study Preference", new_study_preference_path %>
+<%= link_to "Deadlines", deadlines_path %>
