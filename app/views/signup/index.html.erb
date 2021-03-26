@@ -1,7 +1,7 @@
 <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center">
   <div class="container">
 
-    <%= form_for :userCreate, :html =>{:class=>"align-self-center"} do |f| %>
+    <%= form_for :user, :html =>{:class=>"align-self-center"} do |f| %>
       <div class="form-group">
         <label for="exampleInputEmail1">Email address</label>
         <%= f.email_field :email, :class =>  'form-control', :placeholder=> "Email address" %>
