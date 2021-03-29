@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Time Preferences Migrations
 class CreateTimePreferences < ActiveRecord::Migration[6.1]
   def change
     create_table :time_preferences do |t|

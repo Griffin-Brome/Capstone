@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TimePreference < ApplicationRecord
   belongs_to :date_range
 
@@ -6,5 +8,4 @@ class TimePreference < ApplicationRecord
   validates :dayOfWeek, presence: true
   validates :start, presence: true
   validates :end, presence: true
-
 end

@@ -1,4 +1,6 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class DateRangeControllerTest < ActionDispatch::IntegrationTest
   setup do
@@ -18,7 +20,7 @@ class DateRangeControllerTest < ActionDispatch::IntegrationTest
   test 'should create date range' do
     assert_difference('DateRange.count') do
       post date_ranges_url,
-           params: { date_range: { name: @date_range.name, start: @date_range.start, end: @date_range.end} }
+           params: { date_range: { name: @date_range.name, start: @date_range.start, end: @date_range.end } }
     end
 
     assert_redirected_to date_range_url(DateRange.last)
