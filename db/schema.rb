@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_22_045811) do
+ActiveRecord::Schema.define(version: 2021_03_29_064646) do
+
+  create_table "date_ranges", force: :cascade do |t|
+    t.string "name"
+    t.date "start"
+    t.date "end"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "deadlines", force: :cascade do |t|
     t.string "name"

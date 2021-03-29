@@ -1,0 +1,13 @@
+<h1><%= @date_range.name %></h1>
+
+<p><%= @date_range.start %></p>
+<p><%= @date_range.end %></p>
+
+<ul>
+  <li><%= link_to "Date Ranges", date_ranges_path %></li>
+  <li><%= link_to "Edit", edit_date_range_path(@date_range) %></li>
+  <li><%= link_to "Destroy", date_range_path(@date_range),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %></li>
+</ul>
+
