@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  priority: 1
+  requiredTime: 30
+  deadline: one
+
+two:
+  priority: 2
+  requiredTime: 60
+  deadline: two

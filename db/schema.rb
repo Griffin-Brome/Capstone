@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_14_223815) do
+ActiveRecord::Schema.define(version: 2021_03_29_074129) do
+
+  create_table "date_ranges", force: :cascade do |t|
+    t.string "name"
+    t.date "start"
+    t.date "end"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "deadlines", force: :cascade do |t|
     t.string "name"
@@ -20,6 +28,27 @@ ActiveRecord::Schema.define(version: 2021_03_14_223815) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "study_preferences", force: :cascade do |t|
+    t.integer "priority"
+    t.integer "requiredTime"
+    t.integer "deadline_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["deadline_id"], name: "index_study_preferences_on_deadline_id"
+  end
+
+  create_table "time_preferences", force: :cascade do |t|
+    t.string "name"
+    t.boolean "available"
+    t.string "dayOfWeek"
+    t.time "start"
+    t.time "end"
+    t.integer "date_range_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["date_range_id"], name: "index_time_preferences_on_date_range_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "password"
@@ -27,4 +56,6 @@ ActiveRecord::Schema.define(version: 2021_03_14_223815) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "study_preferences", "deadlines"
+  add_foreign_key "time_preferences", "date_ranges"
 end

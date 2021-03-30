@@ -1,4 +1,9 @@
+
 <%= form_with model: @deadline do |form| %>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<body style="background-color:#E5E5E5;">
+
+<form>
   <div>
     <%= form.label :name %><br>
     <%= form.text_field :name %>
@@ -8,6 +13,7 @@
   </div>
 
   <div>
+  <br>
     <%= form.label :description %><br>
     <%= form.text_area :description %>
     <% @deadline.errors.full_messages_for(:description).each do |message| %>
@@ -16,6 +22,7 @@
   </div>
 
   <div>
+  <br>
     <%= form.label :date %><br>
     <%= form.datetime_select :date %>
     <% @deadline.errors.full_messages_for(:date).each do |message| %>
@@ -24,6 +31,27 @@
   </div>
 
   <div>
-    <%= form.submit %>
+  <br>
+    <%= form.label :color %><br>
+    <input type="color" id="label_color" value="#FF0000">
   </div>
+
+  <div class="container">
+  <br>
+  <div class="row">
+      <div class="col-md">
+        <div class="back">
+          <%= link_to 'Back', :back %>
+        </div>
+      </div>
+      <div class="col-md">
+        <div class="submit">
+          <%= form.submit %>
+      </div>
+    </div>
+  </div>
+
+
+  </form>
+  </body>
 <% end %>

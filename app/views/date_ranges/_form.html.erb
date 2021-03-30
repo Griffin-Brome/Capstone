@@ -1,0 +1,50 @@
+
+<%= form_with model: @date_range do |form| %>
+
+<form>
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+    <% @date_range.errors.full_messages_for(:name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+  <br>
+    <%= form.label :start %><br>
+    <%= form.date_select :start %>
+    <% @date_range.errors.full_messages_for(:start).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+  <br>
+    <%= form.label :end %><br>
+    <%= form.date_select :end %>
+    <% @date_range.errors.full_messages_for(:end).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  
+  <div class="container">
+  <br>
+  <div class="row">
+      <div class="col-md">
+        <div class="back">
+          <%= link_to 'Back', :back %>
+        </div>
+      </div>
+      <div class="col-md">
+        <div class="submit">
+          <%= form.submit %>
+      </div>
+    </div>
+  </div>
+
+
+  </form>
+  </body>
+<% end %>

@@ -1,0 +1,74 @@
+<h1><%= @date_range.name %></h1>
+
+<p><%= @date_range.start %></p>
+<p><%= @date_range.end %></p>
+
+<ul>
+  <li><%= link_to "Date Ranges", date_ranges_path %></li>
+  <li><%= link_to "Edit", edit_date_range_path(@date_range) %></li>
+  <li><%= link_to "Destroy", date_range_path(@date_range),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %></li>
+</ul>
+
+<h2>Time Preferences</h2>
+<% @date_range.time_preferences.each do |time_preference| %>
+  <p>
+    <strong>Name:</strong>
+    <%= time_preference.name %>
+  </p>
+
+  <p>
+    <strong>Available:</strong>
+    <%= time_preference.available %>
+  </p>
+
+  <p>
+    <strong>Day of The Week:</strong>
+    <%= time_preference.dayOfWeek %>
+  </p>
+
+  <p>
+    <strong>Start Time:</strong>
+    <%= time_preference.start.strftime("at %I:%M%p") %>
+  </p>
+
+  <p>
+    <strong>End Time:</strong>
+    <%= time_preference.end.strftime("at %I:%M%p") %>
+  </p>
+
+  <p>
+  <%= link_to 'Destroy Time Preference', [time_preference.date_range, time_preference],
+              method: :delete,
+              data: { confirm: "Are you sure?" } %>
+</p>
+<% end %>
+
+<h2>Add a time preference:</h2>
+<%= form_with model: [ @date_range, @date_range.time_preferences.build ] do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.radio_button :available, 1 %>
+    <%= form.label :available, "I am available" %>
+    <%= form.radio_button :available, 0 %>
+    <%= form.label :available, "I am not available" %>
+  </p>
+   <p>
+    <%= form.select :dayOfWeek, ["Monday", "Tuesday", "Wednsday","Thursday","Friday","Saturday","Sunday"] %>
+  </p>
+  <p>
+    <%= form.label :start %><br>
+    <%= form.time_select :start %>
+  </p>
+  <p>
+    <%= form.label :end %><br>
+    <%= form.time_select :end %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

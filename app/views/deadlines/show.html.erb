@@ -4,6 +4,11 @@
 <p><%= @deadline.date %></p>
 
 <ul>
+  <% if  @deadline.study_preference != nil%>
+      <li><%= link_to "Go to Study Preference", study_preference_path(@deadline.study_preference) %></li>
+  <% else %>
+      <li><%= link_to "Go to Study Preferences", study_preferences_path %></li>
+  <% end %>
   <li><%= link_to "Deadlines", deadlines_path %></li>
   <li><%= link_to "Edit", edit_deadline_path(@deadline) %></li>
   <li><%= link_to "Destroy", deadline_path(@deadline),
