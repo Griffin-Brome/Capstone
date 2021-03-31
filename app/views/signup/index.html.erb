@@ -1,0 +1,38 @@
+<div class="d-flex flex-column min-vh-100 justify-content-center align-items-center">
+  <div class="container">
+
+    <%= form_for :user, :html =>{:class=>"align-self-center"} do |f| %>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <%= f.email_field :email, :class =>  'form-control', :placeholder=> "Email address" %>
+      </div>
+      <br/>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <%= f.password_field :password, :class =>  'form-control', :placeholder=> "Password" %>
+      </div>
+      <br/>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Confirm Password</label>
+        <%= f.password_field :confirm_password,:class => 'form-control', :placeholder=> "Confirm Password" %>
+      </div>
+      <br/>
+      <div class="form-group form-check">
+        <%= f.check_box :agree,:class => 'form-check-input' %>
+        <%#<input type="checkbox" class="form-check-input" id="exampleCheck1">%>
+        <label class="form-check-label" for="exampleCheck1">Agree with the terms of services</label>
+      </div>
+
+      <br/>
+      <%= f.submit 'Submit', :class => 'btn btn-primary'%>
+      <%#link_to 'Submit', signup_url, class:"btn btn-primary" %>
+      <%#<button type="submit" class="btn btn-primary">Submit</button>%>
+
+    <% end %>
+
+
+
+
+
+  </div>
+</div>

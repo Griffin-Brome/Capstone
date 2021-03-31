@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  available: false
+  dayOfWeek: MyString
+  start: 2021-03-29 00:41:29
+  end: 2021-03-29 00:41:29
+  date_range: one
+
+two:
+  name: MyString
+  available: false
+  dayOfWeek: MyString
+  start: 2021-03-29 00:41:29
+  end: 2021-03-29 00:41:29
+  date_range: two

@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_30_182153) do
+ActiveRecord::Schema.define(version: 2021_03_29_074129) do
+
+  create_table "date_ranges", force: :cascade do |t|
+    t.string "name"
+    t.date "start"
+    t.date "end"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "deadlines", force: :cascade do |t|
     t.string "name"
@@ -39,11 +47,20 @@ ActiveRecord::Schema.define(version: 2021_03_30_182153) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
+  end
+  
+  create_table "time_preferences", force: :cascade do |t|
+    t.string "name"
+    t.boolean "available"
+    t.string "dayOfWeek"
+    t.time "start"
+    t.time "end"
+    t.integer "date_range_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["date_range_id"], name: "index_time_preferences_on_date_range_id"
   end
 
   add_foreign_key "study_preferences", "deadlines"
+  add_foreign_key "time_preferences", "date_ranges"
 end

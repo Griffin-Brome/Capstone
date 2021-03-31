@@ -1,0 +1,13 @@
+<h1>Date Ranges</h1>
+
+<ul>
+  <% @date_ranges.each do |date_range| %>
+    <li>
+      <%= link_to date_range.name, date_range %>
+      <%= date_range.start %>
+      <%= date_range.end %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "New Date Range", new_date_range_path %>
