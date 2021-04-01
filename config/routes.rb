@@ -2,7 +2,7 @@
 
 Rails.application.routes.draw do
   root 'deadlines#index'
-  resources :users
+  devise_for :users
   resources :deadlines
   resources :study_preferences
   resources :date_ranges do
