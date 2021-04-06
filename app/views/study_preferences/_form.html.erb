@@ -1,34 +1,39 @@
 <%= form_with model: @study_preference do |form| %>
 
-  <div>
-    <%= form.label :deadline %><br>
-    <% if  @study_preference.persisted?%>
-        <%= form.collection_select :deadline_id, Deadline.where(:study_preference == @study_preference), :id, :name %>
-    <% else %>
-        <%= form.collection_select :deadline_id, Deadline.where.missing(:study_preference), :id, :name %>
-    <% end %>
-    <% @study_preference.errors.full_messages_for(:deadline).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <div class="form-group">
+        <%= form.label :deadline %><br>
+        <% if  @study_preference.persisted?%>
+          <%= form.collection_select :deadline_id, Deadline.where(:study_preference == @study_preference), :id, :name, class: "form-control" %>
+        <% else %>
+          <%= form.collection_select :deadline_id, Deadline.where.missing(:study_preference), :id, :name, class: "form-control"%>
+        <% end %>
+        <% @study_preference.errors.full_messages_for(:deadline).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+      </div>
+      <br>
 
-  <div>
-    <%= form.label :priority, "Priority for the Deadline (10 being most important)" %><br>
-    <%= form.number_field :priority, in: 1.0..10.0, step: 1 %>
-    <% @study_preference.errors.full_messages_for(:priority).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
+      <div class="form-group">
+        <%= form.label :priority, "Priority for the Deadline " %><br>
+        <%= form.number_field :priority, in: 1.0..10.0, step: 1, class: "form-control" %>
+        <%# TODO Show visual feedback on importance level %>
+        <% @study_preference.errors.full_messages_for(:priority).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+      </div>
+      <br>
 
-  <div>
-    <%= form.label :requiredTime, "Required Time in Minutes (Min 30-Max 720)" %><br>
-    <%= form.number_field :requiredTime, in: 30.0..720.0, step: 30%>
-    <% @study_preference.errors.full_messages_for(:requiredTime).each do |message| %>
-      <div><%= message %></div>
+      <div class="form-group">
+        <%= form.label :requiredTime, "Required Time in Minutes (Min 30-Max 720)" %><br>
+        <%= form.number_field :requiredTime, in: 30.0..720.0, step: 30, class: "form-control"%>
+        <% @study_preference.errors.full_messages_for(:requiredTime).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+      </div>
+      <br>
+        <%= form.submit class: "btn btn-success"%>
     <% end %>
+    </div>
   </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>

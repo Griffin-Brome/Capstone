@@ -1,3 +1,5 @@
-<h1 class="title">New Deadline</h1>
+<% content_for :page_title do %>
+  New Deadline
+<% end %>
 
 <%= render "form", deadline: @deadline %>

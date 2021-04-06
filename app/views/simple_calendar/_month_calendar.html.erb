@@ -1,6 +1,8 @@
 <div class="simple-calendar">
   <div class="calendar-heading">
-    <h2 class="calendar-title text-center"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></h2>
+    <% content_for :page_title do %>
+      <span class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></h2>
+    <% end %>
     <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view, class: "btn btn-secondary float-start" %>
     <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view, class: "btn btn-secondary float-end" %>
   </div>
@@ -18,6 +20,10 @@
       <% date_range.each_slice(7) do |week| %>
         <tr>
           <% week.each do |day| %>
+            <%# TODO 
+              - highlight current day 
+              - Drag 'n' drop deadlines
+            %>
             <%= content_tag :td, class: calendar.td_classes_for(day) do %>
               <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(passed_block) %>
                 <% capture_haml(day, sorted_events.fetch(day, []), &passed_block) %>

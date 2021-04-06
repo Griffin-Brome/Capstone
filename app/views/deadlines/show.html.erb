@@ -1,4 +1,6 @@
-<h1><%= @deadline.name %></h1>
+<% content_for :page_title do %>
+  <%= @deadline.name %>
+<% end %>
 
 <p><%= @deadline.description %></p>
 <p><%= @deadline.date %></p>

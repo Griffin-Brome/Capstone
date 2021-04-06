@@ -1,4 +1,6 @@
-<h1>Study Preferences</h1>
+<% content_for :page_title do %>
+  Study Preferences
+<% end %>
 
 <ul>
   <% @study_preferences.each do |study_preference| %>
@@ -7,6 +9,4 @@
     </li>
   <% end %>
 </ul>
-
-<%= link_to "New Study Preference", new_study_preference_path %>
-<%= link_to "Deadlines", deadlines_path %>
+<%= link_to "New Study Preference", new_study_preference_path, class: "btn btn-success" %>
