@@ -1,4 +1,6 @@
-<h1><strong>Study Preference for Deadline: </strong><%= @study_preference.deadline.name %></h1>
+<% content_for :page_title do %>
+  <strong>Study Preference for Deadline: </strong><%= @study_preference.deadline.name %>
+<% end %>
 
 <p> <strong>Level of Priority: </strong><%=@study_preference.priority%></p>
 <p><strong>Required Time: </strong><%=  @study_preference.requiredTime%></p>

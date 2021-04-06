@@ -1,57 +1,43 @@
-
 <%= form_with model: @deadline do |form| %>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<body style="background-color:#E5E5E5;">
-
-<form>
-  <div>
-    <%= form.label :name %><br>
-    <%= form.text_field :name %>
-    <% @deadline.errors.full_messages_for(:name).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
-
-  <div>
-  <br>
-    <%= form.label :description %><br>
-    <%= form.text_area :description %>
-    <% @deadline.errors.full_messages_for(:description).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
-
-  <div>
-  <br>
-    <%= form.label :date %><br>
-    <%= form.datetime_select :date %>
-    <% @deadline.errors.full_messages_for(:date).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
-
-  <div>
-  <br>
-    <%= form.label :color %><br>
-    <input type="color" id="label_color" value="#FF0000">
-  </div>
-
-  <div class="container">
-  <br>
   <div class="row">
-      <div class="col-md">
-        <div class="back">
-          <%= link_to 'Back', :back %>
+    <div class="col-md-6 mx-auto">
+      <form>
+        <div class="form-group">
+          <%= form.label :name %><br>
+          <%= form.text_field :name, class: "form-control" %>
+          <% @deadline.errors.full_messages_for(:name).each do |message| %>
+            <div><%= message %></div>
+          <% end %>
         </div>
-      </div>
-      <div class="col-md">
-        <div class="submit">
-          <%= form.submit %>
-      </div>
+        <br>
+
+        <div class="form-group">
+          <%= form.label :description %><br>
+          <%= form.text_area :description, class: "form-control" %>
+          <% @deadline.errors.full_messages_for(:description).each do |message| %>
+            <div><%= message %></div>
+          <% end %>
+        </div>
+        <br>
+
+        <div class="form-group">
+          <%= form.label :date %><br>
+          <%= form.datetime_select :date, class: "form-control" %>
+          <% @deadline.errors.full_messages_for(:date).each do |message| %>
+            <div><%= message %></div>
+          <% end %>
+        </div>
+        <br>
+
+        <div class="form-group">
+          <%= form.label :color %><br>
+          <input type="color" id="label_color" value="#FF0000">
+        </div>
+
+        <br>
+        <br>
+        <%= form.submit class: "btn btn-success" %>
+      </form>
     </div>
   </div>
-
-
-  </form>
-  </body>
 <% end %>
