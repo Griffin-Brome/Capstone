@@ -1,7 +1,11 @@
 # frozen_string_literal: true
-
-class Users
   class ConfirmationsController < Devise::ConfirmationsController
+    private 
+
+      def after_confirmation_path_for(resource_name, resource) 
+        sign_in(resource)
+        deadlines_path
+      end
     # GET /resource/confirmation/new
     # def new
     #   super
@@ -28,5 +32,4 @@ class Users
     # def after_confirmation_path_for(resource_name, resource)
     #   super(resource_name, resource)
     # end
-  end
 end

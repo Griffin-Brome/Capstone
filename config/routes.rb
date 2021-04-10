@@ -2,7 +2,9 @@
 
 Rails.application.routes.draw do
   root 'deadlines#index'
-  devise_for :users
+  devise_for :users, controllers: {
+    confirmations: 'confirmations'
+  }
   resources :deadlines
   resources :study_preferences
   resources :date_ranges do
