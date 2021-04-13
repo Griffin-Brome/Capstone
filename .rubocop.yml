@@ -2,3 +2,6 @@ require: rubocop-rails
 
 Metrics/MethodLength:
   Max: 20
+
+Layout/EndOfLine:
+   Enabled: False

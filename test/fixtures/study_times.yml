@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start: 2021-04-08 16:21:06
+  end: 2021-04-08 16:21:06
+  deadline: one
+
+two:
+  start: 2021-04-08 16:21:06
+  end: 2021-04-08 16:21:06
+  deadline: two

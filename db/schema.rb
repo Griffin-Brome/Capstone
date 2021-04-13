@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_30_182153) do
+ActiveRecord::Schema.define(version: 2021_04_08_222106) do
 
   create_table "date_ranges", force: :cascade do |t|
     t.string "name"
@@ -35,6 +35,15 @@ ActiveRecord::Schema.define(version: 2021_03_30_182153) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["deadline_id"], name: "index_study_preferences_on_deadline_id"
+  end
+
+  create_table "study_times", force: :cascade do |t|
+    t.datetime "start"
+    t.datetime "end"
+    t.integer "deadline_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["deadline_id"], name: "index_study_times_on_deadline_id"
   end
 
   create_table "time_preferences", force: :cascade do |t|
@@ -67,5 +76,6 @@ ActiveRecord::Schema.define(version: 2021_03_30_182153) do
   end
 
   add_foreign_key "study_preferences", "deadlines"
+  add_foreign_key "study_times", "deadlines"
   add_foreign_key "time_preferences", "date_ranges"
 end

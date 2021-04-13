@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Start:</strong>
+  <%= @study_time.start %>
+</p>
+
+<p>
+  <strong>End:</strong>
+  <%= @study_time.end %>
+</p>
+
+<p>
+  <strong>Deadline:</strong>
+  <%= @study_time.deadline_id %>
+</p>
+
+<%= link_to 'Edit', edit_study_time_path(@study_time) %> |
+<%= link_to 'Back', study_times_path %>

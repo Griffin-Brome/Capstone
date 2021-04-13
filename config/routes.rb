@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :study_times
   root 'deadlines#index'
   devise_for :users
   resources :deadlines
