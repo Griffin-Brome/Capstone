@@ -105,11 +105,14 @@ class StudyTimesController < ApplicationController
             skip -= 1
             next
           end
+          # rubocop:todo Style/GuardClause
           if time.yday == i && datetime_to_halves(time) > j
             next
+          # rubocop:enable Style/GuardClause
 
           elsif deadline.yday == i && datetime_to_halves(deadline) - 1 < j
             next
+
           elsif i == schedule[counter][0].yday && j == datetime_to_halves(schedule[counter][0])
             skip = skip + schedule[counter][1] - 1
             counter -= 1
