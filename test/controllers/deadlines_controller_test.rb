@@ -14,7 +14,7 @@ class DeadlinesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should show calendar' do
-    get deadlines_url
+    get '/'
     assert_select 'h2', @today.strftime('%B %Y') # https://ruby-doc.org/stdlib-3.0.0/libdoc/date/rdoc/Date.html#method-i-strftime
     assert css_select '.deadline'.size.zero?   # Deadlines shouldn't show up yet
   end
