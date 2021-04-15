@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  root 'deadlines#index'
+  root 'deadlines#calendar'
   devise_for :users, controllers: {
     confirmations: 'confirmations'
   }
