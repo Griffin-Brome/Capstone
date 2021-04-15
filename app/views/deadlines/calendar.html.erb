@@ -1,0 +1,13 @@
+<%= month_calendar(events: @deadlines) do |date, deadlines| %>
+  <%= date.day %>
+  <ul>
+  <% deadlines.each do |deadline| %>
+    <li>
+      <%= deadline.name %>
+    </li>
+  <% end %>
+  </ul>
+<% end %>
+
+<%= link_to "New Deadline", new_deadline_path, class: "btn btn-success" %>
+<%= link_to "Study Preferences", study_preferences_path, class: "btn btn-primary" %>

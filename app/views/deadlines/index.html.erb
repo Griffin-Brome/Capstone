@@ -1,13 +1,40 @@
-<%= month_calendar(events: @deadlines) do |date, deadlines| %>
-  <%= date.day %>
-  <ul>
-  <% deadlines.each do |deadline| %>
-    <li>
-      <%= deadline.name %>
-    </li>
-  <% end %>
-  </ul>
-<% end %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Date</th>
+      <th scope="col">Last Updated</th>
+      <th></th>
+      <th></th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <% @deadlines.each do |deadline| %>
+      <tr>
+        <th scope="row">
+          <%= deadline.name %>
+        </th>
+        <td>
+          <%= deadline.description %>
+        </td>
+        <td>
+          <%= deadline.date.to_formatted_s(:long) %>
+        </td>
+        <td>
+          <%= deadline.updated_at.to_formatted_s(:long) %>
+        </td>
+        <td>
+          <%= link_to "Edit", edit_deadline_path(deadline) %>
+        </td>
+        <td>
+          <%= link_to "Delete", deadline_path(deadline), method: :delete %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <%= link_to "New Deadline", new_deadline_path, class: "btn btn-success" %>
 <%= link_to "Study Preferences", study_preferences_path, class: "btn btn-primary" %>
