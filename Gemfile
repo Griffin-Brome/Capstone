@@ -32,6 +32,9 @@ gem 'simple_calendar', '~> 2.4'
 gem 'rubocop', require: false
 gem 'rubocop-rails', require: false
 
+# Generate fake data for seeding
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
