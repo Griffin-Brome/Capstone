@@ -2,11 +2,10 @@
 
 # Controller for Deadlines
 class DeadlinesController < ApplicationController
-  
   def index
-      @deadlines = Deadline.all
+    @deadlines = Deadline.all
   end
-  
+
   # https://github.com/excid3/simple_calendar#rendering-events
   def calendar
     date = params.fetch(:start_date, Time.zone.today).to_date
