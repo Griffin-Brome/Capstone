@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   }
   resources :deadlines
   resources :study_preferences
+  resources :study_times
+  post 'study_times/create_all_study_times'
   resources :date_ranges do
     resources :time_preferences
   end
