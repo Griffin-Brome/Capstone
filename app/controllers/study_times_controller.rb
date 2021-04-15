@@ -24,18 +24,14 @@ class StudyTimesController < ApplicationController
   def create
     @study_time = StudyTime.new(study_time_params)
     @study_time.save
-
   end
 
   # PATCH/PUT /study_times/1 or /study_times/1.json
-  def update
-
-  end
+  def update; end
 
   # DELETE /study_times/1 or /study_times/1.json
   def destroy
     @study_time.destroy
-
   end
 
   private
@@ -56,10 +52,10 @@ class StudyTimesController < ApplicationController
     ## futher implementation is required
     # timePreferences = getTimePreferences
 
-    (0..deadline_list.length-1).each do |i|
+    (0..deadline_list.length - 1).each do |i|
       # times = timePreferences
       times = []
-      (0..all_times_needed.length-1).each do |j|
+      (0..all_times_needed.length - 1).each do |j|
         times.push(all_times_needed[j])
       end
       times = times.sort
@@ -68,7 +64,7 @@ class StudyTimesController < ApplicationController
       selected_times = select_best_times(find_times_available(times, 14, 20, deadline[:time]), timeneeded,
                                          'balance_load')
 
-      (0..selected_times.length-1).each do |k|
+      (0..selected_times.length - 1).each do |k|
         all_times_needed.push([selected_times[k], 1])
         create(deadline, selected_times[k], selected_times[k] + 30.minutes)
       end
