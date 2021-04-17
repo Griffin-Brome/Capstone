@@ -3,7 +3,7 @@
   <ul>
   <% deadlines.each do |deadline| %>
     <li>
-      <%= deadline.name %>
+      <%= link_to deadline.name, deadline_path(deadline) %>
     </li>
   <% end %>
   </ul>
