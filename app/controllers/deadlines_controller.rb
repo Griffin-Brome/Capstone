@@ -54,6 +54,6 @@ class DeadlinesController < ApplicationController
   private
 
   def deadline_params
-    params.require(:deadline).permit(:name, :description, :date)
+    params.require(:deadline).permit(:name, :description, :date, :color)
   end
 end
