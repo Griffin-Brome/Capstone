@@ -14,25 +14,34 @@ This project requires
 
 Getting Started
 ---------------
+
 1. Clone the repository
+
 ```
 git clone git@github.com:Griffin-Brome/Capstone.git
 ```
+
 1. Install Dependencies
+
 ```
 bundle install
 
 yarn install
 ```
+
 1. Start the development server
+
 ```
 bundle exec rails server
 ```
+
 1. Head to [localhost:3000](http://localhost:3000) on your web browser to view the site
 
 Verifying a Created Account
 ---------------------------
+
 1. Setup an SMTP server (i.e Mailtrap) inside of a Rails.application.configure block inside of config/development.rb
+
 1. Click the confirmation link on the email sent to your test SMTP server.
 
 Test Suite
