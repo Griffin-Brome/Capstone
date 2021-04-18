@@ -1,11 +1,22 @@
+<style>
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+</style>
 <%= month_calendar(events: @deadlines) do |date, deadlines| %>
   <%= date.day %>
   <ul>
-  <% deadlines.each do |deadline| %>
-    <li>
-      <%= link_to deadline.name, deadline_path(deadline) %>
-    </li>
-  <% end %>
+    <% deadlines.each do |deadline| %>
+      <div style="color: <%= deadline.color%>">
+        <li>
+          <%= link_to deadline.name, deadline_path(deadline), style: "color: inherit;" %>
+        </li>
+      </div>
+    <% end %>
   </ul>
 <% end %>
 
