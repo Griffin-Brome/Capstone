@@ -7,6 +7,7 @@ class CreateDeadlines < ActiveRecord::Migration[6.1]
       t.string :name
       t.text :description
       t.datetime :date
+      t.string :color
 
       t.timestamps
     end
