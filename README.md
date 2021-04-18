@@ -7,18 +7,49 @@ Installation
 This project requires 
 - Ruby 3
 - SQLite 3
-  - libsqlite3-dev 
+  - libsqlite3-dev
 - Node 12
   - yarn
 
 
-To get started:
+Getting Started
 ---------------
-1. Clone the repo
-2. Run `bundle install`
-3. Run `yarn`
-4. Run `bundle exec rubocop -a` to lint your code
-  - You may need to fix some style errors 
-6. Run `bundle exec rails test` to run the test suite
-  - **Note:** you should always run tests _after_ linting
-8. Run `bundle exec rails server` and head to [localhost:3000](http://localhost:3000) on your web browser to view the site
+1. Clone the repository
+```
+git clone git@github.com:Griffin-Brome/Capstone.git
+```
+1. Install Dependencies
+```
+bundle install
+
+yarn install
+```
+1. Start the development server
+```
+bundle exec rails server
+```
+1. Head to [localhost:3000](http://localhost:3000) on your web browser to view the site
+
+Verifying a Created Account
+---------------------------
+1. Setup an SMTP server (i.e Mailtrap) inside of a Rails.application.configure block inside of config/development.rb
+1. Click the confirmation link on the email sent to your test SMTP server.
+
+Test Suite
+----------
+The test suite is run with
+```
+bundle exec rails test
+```
+
+You may need to migrate the DB first
+```
+rails db:migrate RAILS_ENV=test
+```
+
+Style Checking/Linting
+----------------------
+```
+bundle exec rubocop -a
+```
+Note: this will "safe autocorrect" some style errors
