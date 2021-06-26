@@ -1,8 +1,8 @@
 <%= form_with model: @deadline do |form| %>
-  <div class="row">
-    <div class="col-md-6 mx-auto">
+  <div>
+    <div>
       <form>
-        <div class="form-group">
+        <div>
           <%= form.label :name %><br>
           <%= form.text_field :name, class: "form-control" %>
           <% @deadline.errors.full_messages_for(:name).each do |message| %>
@@ -11,7 +11,7 @@
         </div>
         <br>
 
-        <div class="form-group">
+        <div>
           <%= form.label :description %><br>
           <%= form.text_area :description, class: "form-control" %>
           <% @deadline.errors.full_messages_for(:description).each do |message| %>
@@ -20,7 +20,7 @@
         </div>
         <br>
 
-        <div class="form-group">
+        <div>
           <%= form.label :date %><br>
           <%= form.datetime_select :date, class: "form-control" %>
           <% @deadline.errors.full_messages_for(:date).each do |message| %>
@@ -29,7 +29,7 @@
         </div>
         <br>
 
-        <div class="form-group">
+        <div>
           <%= form.label :color %><br>
           <%= form.color_field :color, value: "000" %>
         </div>
