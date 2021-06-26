@@ -1,8 +1,8 @@
 <%= form_with model: @study_preference do |form| %>
 
-  <div class="row">
-    <div class="col-md-6 mx-auto">
-      <div class="form-group">
+  <div>
+    <div>
+      <div>
         <%= form.label :deadline %><br>
         <% if  @study_preference.persisted?%>
           <%= form.collection_select :deadline_id, Deadline.where(:study_preference == @study_preference), :id, :name, class: "form-control" %>
@@ -15,7 +15,7 @@
       </div>
       <br>
 
-      <div class="form-group">
+      <div>
         <%= form.label :priority, "Priority for the Deadline " %><br>
         <%= form.number_field :priority, in: 1.0..10.0, step: 1, class: "form-control" %>
         <%# TODO Show visual feedback on importance level %>
@@ -25,7 +25,7 @@
       </div>
       <br>
 
-      <div class="form-group">
+      <div>
         <%= form.label :requiredTime, "Required Time in Minutes (Min 30-Max 720)" %><br>
         <%= form.number_field :requiredTime, in: 30.0..720.0, step: 30, class: "form-control"%>
         <% @study_preference.errors.full_messages_for(:requiredTime).each do |message| %>
